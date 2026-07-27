@@ -5,7 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ashtar Infinity — Software, Data & Mobile Engineering</title>
 <meta name="description" content="Ashtar Infinity builds web platforms, data science systems, and Flutter mobile apps.">
+<link rel="canonical" href="https://ashtarinfinity.com/">
+
+<!-- Favicons -->
 <link rel="icon" href="mark.png" type="image/png">
+<link rel="apple-touch-icon" href="mark.png">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ashtar Infinity — Software, Data & Mobile Engineering">
+<meta property="og:description" content="Ashtar Infinity designs and ships polished websites, data-driven AI tools, and Flutter mobile apps.">
+<meta property="og:url" content="https://ashtarinfinity.com/">
+<meta property="og:image" content="https://ashtarinfinity.com/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ashtar Infinity — Software, Data & Mobile Engineering">
+<meta name="twitter:description" content="Ashtar Infinity designs and ships polished websites, data-driven AI tools, and Flutter mobile apps.">
+<meta name="twitter:image" content="https://ashtarinfinity.com/logo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ashtar Infinity",
+  "url": "https://ashtarinfinity.com/",
+  "logo": "https://ashtarinfinity.com/logo.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/qaim-raza-0891a9172/",
+    "https://www.linkedin.com/in/saqibkhan91/"
+  ],
+  "email": "itssaqibkhan91@gmail.com",
+  "description": "Ashtar Infinity builds web platforms, data science systems, and Flutter mobile apps."
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +103,21 @@
 
   @media (prefers-reduced-motion: reduce){
     *{ animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s cubic-bezier(.16,.8,.3,1), transform .8s cubic-bezier(.16,.8,.3,1);
+  }
+  .reveal.in-view{ opacity: 1; transform: translateY(0); }
+  .reveal-1{ transition-delay: .06s; }
+  .reveal-2{ transition-delay: .14s; }
+  .reveal-3{ transition-delay: .22s; }
+  .reveal-4{ transition-delay: .30s; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal.in-view{ opacity:1; transform:none; transition:none; }
   }
 
   /* ---------- NAV ---------- */
@@ -277,6 +323,24 @@
     box-shadow: 0 10px 26px rgba(9,11,16,0.07);
   }
   #dotCanvas{ width: 100%; height: 100%; }
+  .hero-canvas-wrap{ isolation: isolate; }
+  .hero-canvas-wrap .hero-glow{
+    position:absolute;
+    inset: -40px;
+    z-index: -2;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(0,119,255,0.20), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(0,168,107,0.16), transparent 55%);
+    filter: blur(6px);
+    animation: glowPulse 7s ease-in-out infinite;
+  }
+  @keyframes glowPulse{
+    0%, 100%{ opacity: .75; transform: scale(1); }
+    50%{ opacity: 1; transform: scale(1.04); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-canvas-wrap .hero-glow{ animation: none; }
+  }
   .hero-panel{
     position:absolute;
     right: 28px;
@@ -606,6 +670,66 @@
     font-size: 0.92rem;
   }
 
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  }
+  .testimonial-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .testimonial-card{
+    background: #fff;
+    border: 1px solid var(--surface-line);
+    border-radius: 22px;
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+    display:flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .testimonial-card:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  .testimonial-quote{
+    font-family:'Chakra Petch', sans-serif;
+    font-size: 1.06rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .testimonial-quote::before{
+    content:'“';
+    color: var(--accent);
+    font-size: 1.6rem;
+    line-height: 0;
+    margin-right: 2px;
+  }
+  .testimonial-person{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--surface-line);
+  }
+  .testimonial-avatar{
+    width: 40px; height:40px;
+    border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Chakra Petch', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    background: linear-gradient(135deg, rgba(0,119,255,0.12), rgba(0,168,107,0.12));
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .testimonial-person div{ line-height: 1.35; }
+  .testimonial-person strong{ display:block; font-size: 0.9rem; color: var(--text); }
+  .testimonial-person span{ font-size: 0.78rem; color: var(--text-faint); }
+
   /* ---------- DOT DIVIDER ---------- */
   .dot-divider{
     display:flex; justify-content:center; align-items:center;
@@ -677,6 +801,28 @@
   }
   .team-link:hover{ color: var(--text); border-color: var(--accent); }
   .team-link svg{ width:16px; height:16px; }
+  .team-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .team-tags span{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 4px 9px;
+    border: 1px solid var(--surface-line);
+    border-radius: 999px;
+    color: var(--text-dim);
+    background: #fff;
+  }
+
+  footer .socials{ display:flex; gap: 14px; align-items:center; }
+  footer .socials a{
+    width: 34px; height: 34px;
+    display:flex; align-items:center; justify-content:center;
+    border: 1px solid var(--surface-line);
+    border-radius: 10px;
+    color: var(--text-dim);
+    transition: color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  footer .socials a:hover{ color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+  footer .socials svg{ width:16px; height:16px; }
 
   /* ---------- CONTACT / CTA ---------- */
   .cta-section{
@@ -753,6 +899,8 @@
     .screen-grid{ grid-template-columns: 1fr; }
     .process-grid{ grid-template-columns: 1fr; }
     .team-grid{ grid-template-columns: 1fr; }
+    .testimonial-grid{ grid-template-columns: 1fr; }
+    footer .wrap{ justify-content: center; text-align: center; }
   }
 </style>
 </head>
@@ -770,6 +918,7 @@
     <ul id="navList">
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#testimonials">Feedback</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -798,6 +947,7 @@
         </div>
       </div>
       <div class="hero-canvas-wrap">
+        <div class="hero-glow" aria-hidden="true"></div>
         <canvas id="dotCanvas" width="520" height="520" role="img" aria-label="Animated infinity dot pattern"></canvas>
         <div class="hero-panel">
           <h3>From idea to production</h3>
@@ -833,14 +983,14 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">What we do</div>
         <h2>Web, AI, and mobile work that feels complete.</h2>
         <p>We bring product thinking, clean engineering, and modern visual design together so every project feels ready for real customers.</p>
       </div>
 
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card reveal reveal-1">
           <div class="service-index">01</div>
           <div class="service-icon">
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><path d="M6 12h30M6 21h30M6 30h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="34" cy="30" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -850,7 +1000,7 @@
           <div class="service-tags"><span>PHP</span><span>Vue.js</span><span>MySQL</span><span>FastAPI</span></div>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal reveal-2">
           <div class="service-index">02</div>
           <div class="service-icon">
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><path d="M6 30l8-14 7 9 6-11 9 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="16" r="2" fill="currentColor"/><circle cx="21" cy="25" r="2" fill="currentColor"/><circle cx="27" cy="14" r="2" fill="currentColor"/></svg>
@@ -860,7 +1010,7 @@
           <div class="service-tags"><span>Python</span><span>Scikit-learn</span><span>LLMs</span><span>Power BI</span></div>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal reveal-3">
           <div class="service-index">03</div>
           <div class="service-icon">
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><rect x="13" y="5" width="16" height="32" rx="3" stroke="currentColor" stroke-width="1.6"/><line x1="19" y1="32" x2="23" y2="32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -910,31 +1060,65 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Client feedback</div>
+        <h2>Work people trust enough to launch.</h2>
+        <p>A small studio only stays busy if the work holds up after handoff. Here's what it's been like to build with us.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal reveal-1">
+          <p class="testimonial-quote">Replace this with a real quote from a client — what changed for them after working with you, in their own words.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">?</div>
+            <div><strong>[Client name]</strong><span>[Role, company]</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-2">
+          <p class="testimonial-quote">A second real testimonial goes here — ideally about a different service (web, data/AI, or mobile) so all three disciplines get proof.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">?</div>
+            <div><strong>[Client name]</strong><span>[Role, company]</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-3">
+          <p class="testimonial-quote">A third quote — even a short line from a WhatsApp message or email a client sent you works well here.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">?</div>
+            <div><strong>[Client name]</strong><span>[Role, company]</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section id="process" class="process">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">How we build</div>
         <h2>A clear path from first conversation to public launch.</h2>
         <p>Every project needs momentum and control. Our process keeps decisions visible, design polished, and engineering focused on the final product.</p>
       </div>
       <div class="process-grid">
-        <div class="process-step" data-step="01">
+        <div class="process-step reveal reveal-1" data-step="01">
           <div class="eyebrow">Discover</div>
           <h3>Shape the goal</h3>
           <p>We clarify the audience, features, content, and technical needs before writing production code.</p>
         </div>
-        <div class="process-step" data-step="02">
+        <div class="process-step reveal reveal-2" data-step="02">
           <div class="eyebrow">Design</div>
           <h3>Create the experience</h3>
           <p>We turn the idea into a polished interface with strong layout, spacing, and user flow.</p>
         </div>
-        <div class="process-step" data-step="03">
+        <div class="process-step reveal reveal-3" data-step="03">
           <div class="eyebrow">Build</div>
           <h3>Engineer the product</h3>
           <p>We implement responsive frontends, APIs, AI workflows, data systems, or Flutter apps.</p>
         </div>
-        <div class="process-step" data-step="04">
+        <div class="process-step reveal reveal-4" data-step="04">
           <div class="eyebrow">Launch</div>
           <h3>Ship and improve</h3>
           <p>We deploy, test, refine, and keep improving until the product feels ready for users.</p>
@@ -950,31 +1134,33 @@
   <!-- TEAM -->
   <section id="team">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">Who's building</div>
         <h2>The team.</h2>
         <p>A focused team that works directly with clients, moving from idea to launch with clear communication and careful execution.</p>
       </div>
 
       <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card reveal reveal-1">
           <div class="avatar">QR</div>
           <div>
             <h3>Engr Qaim Raza</h3>
             <div class="team-role">CEO &amp; App Developer</div>
           </div>
+          <div class="team-tags"><span>Flutter</span><span>Product Strategy</span></div>
           <a class="team-link" href="https://www.linkedin.com/in/qaim-raza-0891a9172/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V23H.24V8.25zM8.13 8.25h4.34v2.02h.06c.6-1.13 2.08-2.33 4.28-2.33 4.58 0 5.42 3.02 5.42 6.94V23h-4.52v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V23H8.13V8.25z"/></svg>
             View LinkedIn
           </a>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal reveal-2">
           <div class="avatar">SB</div>
           <div>
             <h3>Saqib Bilal</h3>
             <div class="team-role">Web Dev &amp; Data Scientist</div>
           </div>
+          <div class="team-tags"><span>Python</span><span>Web Platforms</span></div>
           <a class="team-link" href="https://www.linkedin.com/in/saqibkhan91/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V23H.24V8.25zM8.13 8.25h4.34v2.02h.06c.6-1.13 2.08-2.33 4.28-2.33 4.58 0 5.42 3.02 5.42 6.94V23h-4.52v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V23H8.13V8.25z"/></svg>
             View LinkedIn
@@ -1005,11 +1191,35 @@
       <span>ASHTAR INFINITY</span>
     </a>
     <p>&copy; <span id="year"></span> Ashtar Infinity. All rights reserved.</p>
+    <div class="socials">
+      <a href="mailto:itssaqibkhan91@gmail.com" aria-label="Email Ashtar Infinity">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/qaim-raza-0891a9172/" target="_blank" rel="noopener noreferrer" aria-label="Ashtar Infinity on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V23H.24V8.25zM8.13 8.25h4.34v2.02h.06c.6-1.13 2.08-2.33 4.28-2.33 4.58 0 5.42 3.02 5.42 6.94V23h-4.52v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V23H8.13V8.25z"/></svg>
+      </a>
+    </div>
   </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Scroll reveal ----
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealEls.length){
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
 
   // mobile nav toggle
   const navToggle = document.getElementById('navToggle');

@@ -191,6 +191,25 @@
     font-size: 0.82rem;
     box-shadow: 0 8px 24px rgba(9,11,16,0.05);
   }
+  .signature-strip{
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    margin-top: 34px;
+    color: var(--text-faint);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .signature-strip::before,
+  .signature-strip::after{
+    content:'';
+    height: 1px;
+    flex: 1;
+    max-width: 72px;
+    background: var(--surface-line);
+  }
   .cta-row{ display:flex; gap:16px; margin-top: 36px; flex-wrap: wrap; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
@@ -306,6 +325,18 @@
     overflow: hidden;
   }
   .stat{
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::after{
+    content:'';
+    position:absolute;
+    inset: auto 20% 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+    opacity: .55;
+  }
+  .stat{
     padding: 34px 20px;
     text-align:center;
     border-left: 1px solid var(--surface-line);
@@ -413,6 +444,168 @@
     background: #fff;
   }
 
+  /* ---------- SHOWCASE ---------- */
+  .showcase{
+    padding-top: 40px;
+  }
+  .showcase-board{
+    display:grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+  .showcase-copy{
+    border: 1px solid var(--surface-line);
+    border-radius: 26px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(246,248,251,0.92));
+    padding: 42px;
+    box-shadow: var(--shadow-soft);
+  }
+  .showcase-copy h2{
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    line-height: 1.02;
+    font-weight: 700;
+  }
+  .showcase-copy p{
+    color: var(--text-dim);
+    line-height: 1.65;
+    margin: 18px 0 0;
+  }
+  .showcase-list{
+    display:grid;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .showcase-list div{
+    display:flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 15px 0;
+    border-top: 1px solid var(--surface-line);
+    color: var(--text-dim);
+  }
+  .showcase-list strong{
+    color: var(--text);
+    font-family:'Chakra Petch', sans-serif;
+    font-size: 1.02rem;
+  }
+  .showcase-screen{
+    min-height: 460px;
+    border: 1px solid rgba(9,11,16,0.10);
+    border-radius: 30px;
+    padding: 18px;
+    background:
+      linear-gradient(145deg, #090b10 0%, #1a2230 46%, #ffffff 46%, #ffffff 100%);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .screen-top{
+    display:flex;
+    gap: 8px;
+    padding: 8px 10px 16px;
+  }
+  .screen-top span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: .68;
+  }
+  .screen-grid{
+    display:grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 16px;
+    height: calc(100% - 34px);
+  }
+  .screen-card{
+    background: rgba(255,255,255,0.94);
+    border: 1px solid rgba(255,255,255,0.60);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 18px 55px rgba(9,11,16,0.18);
+  }
+  .screen-card.dark{
+    background: rgba(9,11,16,0.90);
+    color: #fff;
+    border-color: rgba(255,255,255,0.12);
+  }
+  .screen-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .screen-card.dark .screen-label{ color: #6ee7ff; }
+  .screen-card h3{
+    margin-top: 12px;
+    font-size: 1.45rem;
+    line-height: 1.08;
+  }
+  .metric-row{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .metric{
+    border: 1px solid rgba(9,11,16,0.09);
+    border-radius: 16px;
+    padding: 16px;
+    background: #fff;
+  }
+  .metric b{
+    display:block;
+    font-family:'Chakra Petch', sans-serif;
+    font-size: 1.7rem;
+  }
+  .metric span{
+    color: var(--text-faint);
+    font-size: 0.78rem;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  }
+  .process-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .process-step{
+    min-height: 230px;
+    border: 1px solid var(--surface-line);
+    border-radius: 22px;
+    padding: 26px;
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .process-step::before{
+    content: attr(data-step);
+    position:absolute;
+    right: 18px;
+    bottom: -10px;
+    font-family:'Chakra Petch', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(0,119,255,0.08);
+    font-weight: 700;
+  }
+  .process-step h3{
+    font-size: 1.18rem;
+    margin-top: 28px;
+  }
+  .process-step p{
+    color: var(--text-dim);
+    line-height: 1.55;
+    font-size: 0.92rem;
+  }
+
   /* ---------- DOT DIVIDER ---------- */
   .dot-divider{
     display:flex; justify-content:center; align-items:center;
@@ -441,6 +634,14 @@
     transition: border-color .25s ease, transform .25s ease;
     border-radius: 22px;
     box-shadow: var(--shadow-soft);
+  }
+  .team-card::after{
+    content:'';
+    height: 5px;
+    width: 76px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    opacity: .78;
   }
   .team-card:hover{
     border-color: var(--accent);
@@ -546,6 +747,11 @@
     .stat{ border-left:none; border-top: 1px solid var(--surface-line); }
     .stat:first-child{ border-top:none; }
     .services-grid{ grid-template-columns: 1fr; }
+    .showcase-board{ grid-template-columns: 1fr; }
+    .showcase-copy{ padding: 30px; }
+    .showcase-screen{ min-height: 520px; }
+    .screen-grid{ grid-template-columns: 1fr; }
+    .process-grid{ grid-template-columns: 1fr; }
     .team-grid{ grid-template-columns: 1fr; }
   }
 </style>
@@ -563,6 +769,8 @@
   <nav>
     <ul id="navList">
       <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -583,6 +791,7 @@
           <span>AI-ready systems</span>
           <span>Mobile-first apps</span>
         </div>
+        <div class="signature-strip">Design · Code · Launch</div>
         <div class="cta-row">
           <a href="#contact" class="btn btn-primary">Start a project</a>
           <a href="#services" class="btn btn-ghost">What we build</a>
@@ -659,6 +868,76 @@
           <h3>Mobile Apps (Flutter)</h3>
           <p>Beautiful cross-platform apps built in Flutter for smooth, native-feeling experiences on iOS and Android.</p>
           <div class="service-tags"><span>Flutter</span><span>Dart</span><span>iOS</span><span>Android</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section id="work" class="showcase">
+    <div class="wrap showcase-board">
+      <div class="showcase-copy">
+        <div class="eyebrow">Selected direction</div>
+        <h2>A sharper digital presence for serious businesses.</h2>
+        <p>We design interfaces that feel modern at first glance and dependable after real use: crisp landing pages, focused dashboards, AI-powered workflows, and mobile apps with smooth customer journeys.</p>
+        <div class="showcase-list">
+          <div><strong>Brand websites</strong><span>Clean pages that build trust fast</span></div>
+          <div><strong>AI tools</strong><span>Practical automation and insight systems</span></div>
+          <div><strong>Mobile apps</strong><span>Flutter experiences ready for launch</span></div>
+        </div>
+      </div>
+
+      <div class="showcase-screen" aria-label="Product interface preview">
+        <div class="screen-top"><span></span><span></span><span></span></div>
+        <div class="screen-grid">
+          <div class="screen-card dark">
+            <div class="screen-label">Product launch</div>
+            <h3>Strategy, UI, backend, AI, and deployment in one clean build.</h3>
+            <div class="metric-row">
+              <div class="metric"><b>01</b><span>Discovery</span></div>
+              <div class="metric"><b>02</b><span>Prototype</span></div>
+              <div class="metric"><b>03</b><span>Build</span></div>
+              <div class="metric"><b>04</b><span>Launch</span></div>
+            </div>
+          </div>
+          <div class="screen-card">
+            <div class="screen-label">Ashtar Infinity</div>
+            <h3>Elegant systems for web, data, and mobile.</h3>
+            <p style="color:var(--text-dim);line-height:1.6;">A polished digital studio experience with performance, responsive design, and production-ready delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How we build</div>
+        <h2>A clear path from first conversation to public launch.</h2>
+        <p>Every project needs momentum and control. Our process keeps decisions visible, design polished, and engineering focused on the final product.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step" data-step="01">
+          <div class="eyebrow">Discover</div>
+          <h3>Shape the goal</h3>
+          <p>We clarify the audience, features, content, and technical needs before writing production code.</p>
+        </div>
+        <div class="process-step" data-step="02">
+          <div class="eyebrow">Design</div>
+          <h3>Create the experience</h3>
+          <p>We turn the idea into a polished interface with strong layout, spacing, and user flow.</p>
+        </div>
+        <div class="process-step" data-step="03">
+          <div class="eyebrow">Build</div>
+          <h3>Engineer the product</h3>
+          <p>We implement responsive frontends, APIs, AI workflows, data systems, or Flutter apps.</p>
+        </div>
+        <div class="process-step" data-step="04">
+          <div class="eyebrow">Launch</div>
+          <h3>Ship and improve</h3>
+          <p>We deploy, test, refine, and keep improving until the product feels ready for users.</p>
         </div>
       </div>
     </div>

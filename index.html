@@ -90,8 +90,8 @@
   .mono{ font-family: 'JetBrains Mono', monospace; }
   a{ color: inherit; text-decoration: none; }
   img{ max-width: 100%; display:block; }
-  section{ position: relative; padding: 124px 24px; }
-  .wrap{ max-width: 1120px; margin: 0 auto; }
+  section{ position: relative; padding: clamp(78px, 10vw, 124px) 24px; }
+  .wrap{ width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
 
   ::selection{ background: var(--accent); color: #000; }
 
@@ -201,7 +201,7 @@
     content:''; width: 22px; height:1px; background: var(--accent);
   }
   .hero h1{
-    font-size: clamp(2.85rem, 6.4vw, 5.35rem);
+    font-size: clamp(2.65rem, 6.4vw, 5.35rem);
     line-height: 0.95;
     font-weight: 700;
     max-width: 9.8ch;
@@ -267,6 +267,9 @@
     letter-spacing: 0.02em;
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     border: 1px solid transparent;
+    min-height: 48px;
+    justify-content: center;
+    white-space: nowrap;
   }
   .btn-primary{
     background: var(--text);
@@ -286,6 +289,7 @@
     aspect-ratio: 1/1;
     display:flex; align-items:center; justify-content:center;
     min-height: 500px;
+    width: 100%;
     border-radius: 30px;
     background:
       linear-gradient(135deg, rgba(0,119,255,0.08), rgba(0,168,107,0.08)),
@@ -583,6 +587,7 @@
   .showcase-list div{
     display:flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 18px;
     padding: 15px 0;
     border-top: 1px solid var(--surface-line);
@@ -646,6 +651,7 @@
     margin-top: 12px;
     font-size: 1.45rem;
     line-height: 1.08;
+    overflow-wrap: anywhere;
   }
   .metric-row{
     display:grid;
@@ -846,13 +852,28 @@
   footer p{ color: var(--text-faint); font-size: 0.82rem; margin:0; }
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 860px){
+  @media (max-width: 1080px){
+    header{ padding: 14px 24px; }
+    nav ul{ gap: 22px; }
+    .hero-grid{
+      grid-template-columns: 1fr 0.86fr;
+      gap: 36px;
+    }
+    .hero-canvas-wrap{ min-height: 430px; }
+    .services-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .service-card{ padding: 34px 24px; }
+    .process-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 900px){
+    .wrap{ width: min(100% - 36px, 720px); }
     nav ul{
-      position: fixed; top: 66px; left:0; right:0;
+      position: fixed; top: 63px; left:0; right:0;
       flex-direction: column;
       background: #fff;
       border-bottom: 1px solid var(--surface-line);
-      padding: 20px 32px 28px;
+      box-shadow: 0 24px 60px rgba(9,11,16,0.12);
+      padding: 20px 24px 28px;
       gap: 18px;
       transform: translateY(-130%);
       transition: transform .3s ease;
@@ -864,9 +885,22 @@
     }
     .nav-toggle span{ width:22px; height:2px; background: var(--text); display:block; }
 
-    .hero-grid{ grid-template-columns: 1fr; }
-    .hero h1{ max-width: 10ch; }
-    .hero-canvas-wrap{ order:-1; max-width: 420px; min-height: auto; margin: 0 auto; }
+    .hero{
+      min-height: auto;
+      padding-top: 104px;
+      padding-bottom: 58px;
+    }
+    .hero-grid{
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+    .hero h1{ max-width: 11ch; }
+    .hero-canvas-wrap{
+      order:-1;
+      max-width: 480px;
+      min-height: auto;
+      margin: 0 auto;
+    }
     .scene-label{ font-size: 0.62rem; padding: 8px 10px; }
     .hero-panel{ position: static; width: calc(100% - 36px); margin: -80px auto 22px; }
     .stats .wrap{ grid-template-columns: 1fr; }
@@ -875,11 +909,145 @@
     .services-grid{ grid-template-columns: 1fr; }
     .showcase-board{ grid-template-columns: 1fr; }
     .showcase-copy{ padding: 30px; }
-    .showcase-screen{ min-height: 520px; }
+    .showcase-screen{ min-height: 500px; }
     .screen-grid{ grid-template-columns: 1fr; }
-    .process-grid{ grid-template-columns: 1fr; }
+    .process-grid{ grid-template-columns: repeat(2, 1fr); }
     .team-grid{ grid-template-columns: 1fr; }
     footer .wrap{ justify-content: center; text-align: center; }
+  }
+
+  @media (max-width: 620px){
+    body::before{ background-size: 30px 30px; }
+    .wrap{ width: min(100% - 28px, 520px); }
+    section{ padding: 72px 0; }
+    header{ padding: 12px 16px; }
+    .brand{ gap: 9px; min-width: 0; }
+    .brand img{ height: 30px; }
+    .brand span{
+      font-size: 0.88rem;
+      max-width: 170px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    nav ul{ top: 57px; padding: 18px 18px 24px; }
+    nav a{ font-size: 0.98rem; }
+    .hero{
+      padding-top: 88px;
+      padding-bottom: 42px;
+    }
+    .hero h1{
+      font-size: clamp(2.42rem, 16vw, 3.7rem);
+      line-height: 0.98;
+      max-width: 9.4ch;
+    }
+    .hero p.lede{
+      font-size: 1rem;
+      line-height: 1.62;
+      max-width: none;
+    }
+    .eyebrow{
+      font-size: 0.66rem;
+      letter-spacing: 0.10em;
+      margin-bottom: 16px;
+    }
+    .hero-proof span{ font-size: 0.76rem; }
+    .signature-strip{
+      gap: 10px;
+      font-size: 0.64rem;
+      margin-top: 26px;
+    }
+    .cta-row{
+      width: 100%;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .btn{
+      width: 100%;
+      padding: 13px 18px;
+      white-space: normal;
+      text-align: center;
+    }
+    .hero-canvas-wrap{
+      max-width: 100%;
+      border-radius: 22px;
+      aspect-ratio: 1 / 1.08;
+    }
+    .hero-canvas-wrap::before{
+      inset: 12px;
+      border-radius: 18px;
+    }
+    .hero-canvas-wrap::after{
+      top: 18px;
+      left: 18px;
+      font-size: 0.58rem;
+      padding: 7px 10px;
+    }
+    .scene-label{ display:none; }
+    .hero-panel{
+      width: calc(100% - 24px);
+      margin: -74px auto 16px;
+      padding: 15px;
+      border-radius: 15px;
+    }
+    .hero-panel p{ font-size: 0.8rem; }
+    .stats{ padding: 0 0 64px; }
+    .stats .wrap{ border-radius: 16px; }
+    .stat{ padding: 26px 18px; }
+    .section-head{ margin-bottom: 36px; }
+    .section-head h2,
+    .showcase-copy h2,
+    .cta-section h2{
+      font-size: clamp(2rem, 11vw, 2.75rem);
+      line-height: 1.06;
+    }
+    .services-grid,
+    .showcase-copy,
+    .showcase-screen,
+    .process-step,
+    .team-card{
+      border-radius: 18px;
+    }
+    .service-card,
+    .team-card{
+      padding: 28px 22px;
+    }
+    .service-icon{
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+    }
+    .showcase-copy{ padding: 26px 22px; }
+    .showcase-list div{
+      display:grid;
+      gap: 6px;
+    }
+    .showcase-screen{
+      min-height: auto;
+      padding: 14px;
+    }
+    .screen-grid{ height: auto; }
+    .screen-card{ padding: 18px; }
+    .screen-card h3{ font-size: 1.22rem; }
+    .metric-row{ grid-template-columns: 1fr; }
+    .process-grid{ grid-template-columns: 1fr; }
+    .process-step{
+      min-height: 190px;
+      padding: 22px;
+    }
+    .process-step::before{ font-size: 4.1rem; }
+    footer{ padding: 32px 0; }
+    footer .wrap{ gap: 12px; }
+    footer p{ width: 100%; }
+  }
+
+  @media (max-width: 380px){
+    .brand span{ max-width: 132px; }
+    .hero h1{ font-size: 2.28rem; }
+    .hero-proof{ gap: 8px; }
+    .hero-proof span{ width: 100%; justify-content: center; }
+    .signature-strip{ font-size: 0.58rem; }
+    .team-link{ font-size: 0.78rem; }
   }
 </style>
 </head>
@@ -1285,8 +1453,12 @@
 
   function resizeScene(){
     const rect = canvas.getBoundingClientRect();
-    renderer.setSize(rect.width, rect.height, false);
-    camera.aspect = rect.width / Math.max(rect.height, 1);
+    const width = Math.max(rect.width, 240);
+    const height = Math.max(rect.height, 260);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, width < 520 ? 1.5 : 2));
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.position.z = width < 520 ? 9.8 : 8.6;
     camera.updateProjectionMatrix();
   }
 

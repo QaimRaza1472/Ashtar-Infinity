@@ -670,66 +670,6 @@
     font-size: 0.92rem;
   }
 
-  /* ---------- TESTIMONIALS ---------- */
-  .testimonials{
-    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-  }
-  .testimonial-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-  }
-  .testimonial-card{
-    background: #fff;
-    border: 1px solid var(--surface-line);
-    border-radius: 22px;
-    padding: 32px;
-    box-shadow: var(--shadow-soft);
-    display:flex;
-    flex-direction: column;
-    gap: 18px;
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .testimonial-card:hover{
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
-  }
-  .testimonial-quote{
-    font-family:'Chakra Petch', sans-serif;
-    font-size: 1.06rem;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .testimonial-quote::before{
-    content:'“';
-    color: var(--accent);
-    font-size: 1.6rem;
-    line-height: 0;
-    margin-right: 2px;
-  }
-  .testimonial-person{
-    display:flex;
-    align-items:center;
-    gap: 12px;
-    margin-top: auto;
-    padding-top: 14px;
-    border-top: 1px solid var(--surface-line);
-  }
-  .testimonial-avatar{
-    width: 40px; height:40px;
-    border-radius: 12px;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Chakra Petch', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    background: linear-gradient(135deg, rgba(0,119,255,0.12), rgba(0,168,107,0.12));
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-  .testimonial-person div{ line-height: 1.35; }
-  .testimonial-person strong{ display:block; font-size: 0.9rem; color: var(--text); }
-  .testimonial-person span{ font-size: 0.78rem; color: var(--text-faint); }
-
   /* ---------- DOT DIVIDER ---------- */
   .dot-divider{
     display:flex; justify-content:center; align-items:center;
@@ -899,7 +839,6 @@
     .screen-grid{ grid-template-columns: 1fr; }
     .process-grid{ grid-template-columns: 1fr; }
     .team-grid{ grid-template-columns: 1fr; }
-    .testimonial-grid{ grid-template-columns: 1fr; }
     footer .wrap{ justify-content: center; text-align: center; }
   }
 </style>
@@ -918,7 +857,6 @@
     <ul id="navList">
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#testimonials">Feedback</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1054,40 +992,6 @@
             <div class="screen-label">Ashtar Infinity</div>
             <h3>Elegant systems for web, data, and mobile.</h3>
             <p style="color:var(--text-dim);line-height:1.6;">A polished digital studio experience with performance, responsive design, and production-ready delivery.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="testimonials">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Client feedback</div>
-        <h2>Work people trust enough to launch.</h2>
-        <p>A small studio only stays busy if the work holds up after handoff. Here's what it's been like to build with us.</p>
-      </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card reveal reveal-1">
-          <p class="testimonial-quote">Replace this with a real quote from a client — what changed for them after working with you, in their own words.</p>
-          <div class="testimonial-person">
-            <div class="testimonial-avatar">?</div>
-            <div><strong>[Client name]</strong><span>[Role, company]</span></div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-2">
-          <p class="testimonial-quote">A second real testimonial goes here — ideally about a different service (web, data/AI, or mobile) so all three disciplines get proof.</p>
-          <div class="testimonial-person">
-            <div class="testimonial-avatar">?</div>
-            <div><strong>[Client name]</strong><span>[Role, company]</span></div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-3">
-          <p class="testimonial-quote">A third quote — even a short line from a WhatsApp message or email a client sent you works well here.</p>
-          <div class="testimonial-person">
-            <div class="testimonial-avatar">?</div>
-            <div><strong>[Client name]</strong><span>[Role, company]</span></div>
           </div>
         </div>
       </div>

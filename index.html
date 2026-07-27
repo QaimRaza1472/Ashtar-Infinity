@@ -13,23 +13,26 @@
 
 <style>
   :root{
-    --bg: #08090c;
-    --bg-soft: #0f1117;
-    --surface: #14161f;
-    --surface-line: #23262f;
-    --text: #f2f3f5;
-    --text-dim: #9297a3;
-    --text-faint: #5c6068;
-    --accent: #35d0ff;
-    --accent-2: #7c6bff;
-    --accent-soft: rgba(53, 208, 255, 0.12);
+    --bg: #ffffff;
+    --bg-soft: #f6f8fb;
+    --surface: #ffffff;
+    --surface-line: #dce3ec;
+    --text: #090b10;
+    --text-dim: #46515f;
+    --text-faint: #748093;
+    --accent: #0077ff;
+    --accent-2: #00a86b;
+    --accent-soft: rgba(0, 119, 255, 0.12);
+    --shadow: 0 24px 70px rgba(9, 11, 16, 0.10);
+    --shadow-soft: 0 14px 40px rgba(9, 11, 16, 0.07);
   }
 
   *{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
   body{
     margin:0;
-    background: var(--bg);
+    background:
+      linear-gradient(180deg, #ffffff 0%, #f9fbff 48%, #ffffff 100%);
     color: var(--text);
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -67,13 +70,14 @@
     align-items:center;
     justify-content: space-between;
     padding: 18px 32px;
-    background: rgba(8,9,12,0.7);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(9,11,16,0.08);
+    box-shadow: 0 10px 35px rgba(9,11,16,0.05);
   }
   .brand{ display:flex; align-items:center; gap:12px; }
   .brand img{ height: 30px; width:auto; }
-  .brand span{ font-family:'Chakra Petch', sans-serif; font-weight:600; font-size: 1.05rem; letter-spacing: 0.04em; }
+  .brand span{ font-family:'Chakra Petch', sans-serif; font-weight:700; font-size: 1.05rem; letter-spacing: 0.04em; }
   nav ul{ list-style:none; display:flex; gap: 34px; margin:0; padding:0; }
   nav a{
     font-size: 0.88rem;
@@ -94,17 +98,30 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    min-height: 100svh;
+    min-height: 92svh;
     display:flex;
     align-items:center;
     padding-top: 120px;
     padding-bottom: 80px;
+    overflow: hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    inset: 84px 0 auto;
+    height: 420px;
+    background:
+      radial-gradient(circle at 18% 28%, rgba(0,119,255,0.10), transparent 30%),
+      radial-gradient(circle at 78% 22%, rgba(0,168,107,0.12), transparent 28%);
+    pointer-events:none;
   }
   .hero-grid{
     display:grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 48px;
     align-items:center;
+    position: relative;
+    z-index: 1;
   }
   .eyebrow{
     display:inline-flex; align-items:center; gap: 10px;
@@ -120,8 +137,8 @@
   }
   .hero h1{
     font-size: clamp(2.4rem, 5vw, 3.85rem);
-    line-height: 1.06;
-    font-weight: 600;
+    line-height: 1.02;
+    font-weight: 700;
   }
   .hero h1 .grad{
     background: linear-gradient(100deg, var(--accent), var(--accent-2));
@@ -140,7 +157,7 @@
   .btn{
     display:inline-flex; align-items:center; gap:8px;
     padding: 13px 26px;
-    border-radius: 3px;
+    border-radius: 8px;
     font-size: 0.92rem;
     font-weight: 600;
     font-family:'Chakra Petch', sans-serif;
@@ -150,19 +167,27 @@
   }
   .btn-primary{
     background: var(--text);
-    color: #08090c;
+    color: #fff;
+    box-shadow: 0 16px 40px rgba(9, 11, 16, 0.18);
   }
   .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px -8px var(--accent-soft); }
   .btn-ghost{
     border-color: var(--surface-line);
     color: var(--text);
+    background: #fff;
   }
-  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
+  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); box-shadow: var(--shadow-soft); }
 
   .hero-canvas-wrap{
     position: relative;
     aspect-ratio: 1/1;
     display:flex; align-items:center; justify-content:center;
+    border-radius: 28px;
+    background:
+      linear-gradient(135deg, rgba(0,119,255,0.08), rgba(0,168,107,0.08)),
+      #fff;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(9,11,16,0.08);
   }
   #dotCanvas{ width: 100%; height: 100%; }
 
@@ -175,6 +200,10 @@
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--surface-line);
     border-bottom: 1px solid var(--surface-line);
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+    border-radius: 14px;
+    overflow: hidden;
   }
   .stat{
     padding: 30px 20px;
@@ -186,7 +215,7 @@
     font-family:'Chakra Petch', sans-serif;
     font-size: 2rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text);
   }
   .stat .lbl{
     margin-top: 6px;
@@ -216,15 +245,18 @@
     gap: 1px;
     background: var(--surface-line);
     border: 1px solid var(--surface-line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
   }
   .service-card{
-    background: var(--bg-soft);
+    background: var(--surface);
     padding: 40px 32px;
     transition: background .25s ease;
     position: relative;
     overflow: hidden;
   }
-  .service-card:hover{ background: var(--surface); }
+  .service-card:hover{ background: #f9fbff; }
   .service-index{
     font-family:'JetBrains Mono', monospace;
     font-size: 0.75rem;
@@ -255,8 +287,9 @@
     font-size: 0.7rem;
     padding: 4px 9px;
     border: 1px solid var(--surface-line);
-    border-radius: 3px;
+    border-radius: 999px;
     color: var(--text-dim);
+    background: #fff;
   }
 
   /* ---------- DOT DIVIDER ---------- */
@@ -278,13 +311,15 @@
     gap: 24px;
   }
   .team-card{
-    background: var(--bg-soft);
+    background: #fff;
     border: 1px solid var(--surface-line);
     padding: 36px;
     display:flex;
     flex-direction: column;
     gap: 20px;
     transition: border-color .25s ease, transform .25s ease;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
   }
   .team-card:hover{
     border-color: var(--accent);
@@ -292,12 +327,12 @@
   }
   .avatar{
     width: 64px; height: 64px;
-    border-radius: 50%;
+    border-radius: 18px;
     display:flex; align-items:center; justify-content:center;
     font-family:'Chakra Petch', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-    background: linear-gradient(135deg, var(--accent-soft), transparent);
+    background: linear-gradient(135deg, rgba(0,119,255,0.12), rgba(0,168,107,0.12));
     border: 1px solid var(--surface-line);
     color: var(--accent);
   }
@@ -325,6 +360,8 @@
   .cta-section{
     text-align:center;
     border-top: 1px solid var(--surface-line);
+    background:
+      linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
   }
   .cta-section h2{
     font-size: clamp(1.9rem, 4vw, 2.7rem);
@@ -341,6 +378,7 @@
   footer{
     padding: 40px 24px;
     border-top: 1px solid var(--surface-line);
+    background: #fff;
     display:flex;
     justify-content: space-between;
     align-items:center;
@@ -365,7 +403,7 @@
     nav ul{
       position: fixed; top: 66px; left:0; right:0;
       flex-direction: column;
-      background: var(--bg-soft);
+      background: #fff;
       border-bottom: 1px solid var(--surface-line);
       padding: 20px 32px 28px;
       gap: 18px;
@@ -415,8 +453,8 @@
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">Software · Data · Mobile</div>
-        <h1>Systems built to run<br><span class="grad">without limit.</span></h1>
-        <p class="lede">Ashtar Infinity designs and ships web platforms, data science pipelines, and Flutter mobile apps — end to end, from first pixel to production.</p>
+        <h1>Digital products built<br><span class="grad">with precision.</span></h1>
+        <p class="lede">Ashtar Infinity designs and ships polished websites, data-driven AI tools, and Flutter mobile apps that look sharp, load fast, and work reliably.</p>
         <div class="cta-row">
           <a href="#contact" class="btn btn-primary">Start a project</a>
           <a href="#services" class="btn btn-ghost">What we build</a>
@@ -451,8 +489,8 @@
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">What we do</div>
-        <h2>Three disciplines, one team.</h2>
-        <p>We don't hand projects off between departments — the same team that designs your data model ships your app.</p>
+        <h2>Web, AI, and mobile work that feels complete.</h2>
+        <p>We bring product thinking, clean engineering, and modern visual design together so every project feels ready for real customers.</p>
       </div>
 
       <div class="services-grid">
@@ -462,7 +500,7 @@
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><path d="M6 12h30M6 21h30M6 30h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="34" cy="30" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
           </div>
           <h3>Web Development</h3>
-          <p>Fast, responsive websites and web apps — from marketing sites to full-stack platforms with real back ends.</p>
+          <p>Elegant, responsive websites and web apps built for speed, clarity, and conversion.</p>
           <div class="service-tags"><span>PHP</span><span>Vue.js</span><span>MySQL</span><span>FastAPI</span></div>
         </div>
 
@@ -472,7 +510,7 @@
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><path d="M6 30l8-14 7 9 6-11 9 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="16" r="2" fill="currentColor"/><circle cx="21" cy="25" r="2" fill="currentColor"/><circle cx="27" cy="14" r="2" fill="currentColor"/></svg>
           </div>
           <h3>Data Science &amp; AI</h3>
-          <p>Predictive models, LLM-powered tools, and analytics pipelines that turn raw data into decisions.</p>
+          <p>Predictive models, AI assistants, dashboards, and analytics pipelines that turn data into action.</p>
           <div class="service-tags"><span>Python</span><span>Scikit-learn</span><span>LLMs</span><span>Power BI</span></div>
         </div>
 
@@ -482,7 +520,7 @@
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><rect x="13" y="5" width="16" height="32" rx="3" stroke="currentColor" stroke-width="1.6"/><line x1="19" y1="32" x2="23" y2="32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </div>
           <h3>Mobile Apps (Flutter)</h3>
-          <p>Cross-platform mobile apps built once in Flutter and shipped natively to iOS and Android.</p>
+          <p>Beautiful cross-platform apps built in Flutter for smooth, native-feeling experiences on iOS and Android.</p>
           <div class="service-tags"><span>Flutter</span><span>Dart</span><span>iOS</span><span>Android</span></div>
         </div>
       </div>
@@ -499,7 +537,7 @@
       <div class="section-head">
         <div class="eyebrow">Who's building</div>
         <h2>The team.</h2>
-        <p>A small, direct team — no account managers, no middle layer between you and the people writing the code.</p>
+        <p>A focused team that works directly with clients, moving from idea to launch with clear communication and careful execution.</p>
       </div>
 
       <div class="team-grid">
@@ -534,7 +572,7 @@
   <section id="contact" class="cta-section">
     <div class="wrap">
       <h2>Have a project in mind?</h2>
-      <p>Tell us what you're building — web, data, or mobile — and we'll tell you how we'd approach it.</p>
+      <p>Tell us what you're building. We'll help shape the right path from first idea to live product.</p>
       <div class="cta-row">
         <a href="mailto:itssaqibkhan91@gmail.com" class="btn btn-primary">itssaqibkhan91@gmail.com</a>
         <a href="tel:+923076893486" class="btn btn-ghost">+92 307 6893486</a>
@@ -622,8 +660,8 @@
       ctx.beginPath();
       ctx.rect(x - p.r/2, y - p.r/2, p.r, p.r);
       ctx.fillStyle = p.dissolve > 0
-        ? `rgba(53, 208, 255, ${Math.max(0.25, Math.min(0.95, alpha))})`
-        : 'rgba(242, 243, 245, 0.95)';
+        ? `rgba(0, 119, 255, ${Math.max(0.25, Math.min(0.95, alpha))})`
+        : 'rgba(9, 11, 16, 0.88)';
       ctx.fill();
     });
 

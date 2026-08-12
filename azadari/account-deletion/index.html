@@ -96,10 +96,23 @@
   }
 
   .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: clamp(18px, 4vw, 30px);
     border-top: 5px solid var(--accent);
     background: var(--surface);
     box-shadow: var(--shadow);
     padding: clamp(30px, 6vw, 56px);
+  }
+
+  .app-logo {
+    width: clamp(78px, 14vw, 118px);
+    height: clamp(78px, 14vw, 118px);
+    object-fit: contain;
+    border: 1px solid var(--line);
+    background: #ffffff;
+    padding: 6px;
   }
 
   h1 {
@@ -190,6 +203,10 @@
       flex-direction: column;
     }
 
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
     .brand img {
       width: 46px;
       height: 46px;
@@ -215,10 +232,13 @@
   </header>
 
   <div class="hero">
-    <h1>Delete Your Azadari Account</h1>
-    <p class="lede">
-      This page explains how Azadari users can delete their account and associated account data. It is publicly accessible and does not require login.
-    </p>
+    <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
+    <div>
+      <h1>Delete Your Azadari Account</h1>
+      <p class="lede">
+        This page explains how Azadari users can delete their account and associated account data. It is publicly accessible and does not require login.
+      </p>
+    </div>
   </div>
 
   <div class="content">

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms and User Guidelines - Azadari Pak</title>
+<meta name="description" content="Terms and user content guidelines for the Azadari Pak mobile application.">
+<link rel="canonical" href="https://ashtarinfinity.com/azadari-pak/terms/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Terms and User Guidelines - Azadari Pak">
+<meta property="og:description" content="Terms and user content guidelines for the Azadari Pak mobile application.">
+<meta property="og:url" content="https://ashtarinfinity.com/azadari-pak/terms/">
+<meta property="og:image" content="https://ashtarinfinity.com/azadari-pak/privacy-policy/azadari-pak-logo.png">
+<link rel="icon" href="../../mark.png" type="image/png">
+<style>
+  :root {
+    --bg: #f4f7f2;
+    --surface: #ffffff;
+    --ink: #1f251f;
+    --muted: #607064;
+    --line: #dce5dc;
+    --green: #0b6e4f;
+    --green-dark: #074833;
+    --gold: #c89b3c;
+    --gold-soft: #fff4d8;
+    --shadow: 0 24px 70px rgba(15, 47, 33, 0.14);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0;
+    background:
+      radial-gradient(circle at top left, rgba(200, 155, 60, 0.18), transparent 34%),
+      linear-gradient(135deg, #f8fbf6 0%, #eef5ed 48%, #ffffff 100%);
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgba(11, 110, 79, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 110, 79, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.65), transparent 72%);
+  }
+  .page { width: min(980px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; color: inherit; text-decoration: none; }
+  .brand-mark { width: 58px; height: 58px; display: grid; place-items: center; flex: 0 0 auto; }
+  .brand-mark img { width: 58px; height: 58px; object-fit: contain; }
+  .brand-name { display: block; font-size: 18px; font-weight: 800; }
+  .brand-subtitle { display: block; color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(200, 155, 60, 0.32);
+    background: rgba(255, 244, 216, 0.84);
+    color: #72561f;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: clamp(32px, 6vw, 58px);
+    background:
+      linear-gradient(135deg, rgba(7, 72, 51, 0.95), rgba(11, 110, 79, 0.9)),
+      var(--green);
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    top: -90px;
+    width: 260px;
+    height: 260px;
+    border: 46px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+  .app-logo {
+    width: clamp(72px, 12vw, 108px);
+    height: clamp(72px, 12vw, 108px);
+    object-fit: contain;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 4px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  }
+  .content {
+    margin-top: 24px;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid rgba(11, 110, 79, 0.12);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 55px rgba(15, 47, 33, 0.09);
+    backdrop-filter: blur(12px);
+  }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1; margin: 0 0 14px; letter-spacing: 0; }
+  .effective-date { color: rgba(255, 255, 255, 0.82); font-size: 15px; margin: 0; }
+  h2 { font-size: 20px; line-height: 1.25; margin-top: 38px; margin-bottom: 10px; border-bottom: 1px solid var(--line); padding-bottom: 10px; color: var(--green-dark); }
+  h2:first-child { margin-top: 0; }
+  p, li { font-size: 15.5px; color: #334238; }
+  p { margin: 0 0 14px; }
+  ul { padding-left: 22px; margin-top: 10px; }
+  li { margin: 8px 0; }
+  strong { color: var(--ink); }
+  a { color: var(--green); font-weight: 700; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .contact-box { background: linear-gradient(135deg, #f8fff9, var(--gold-soft)); border: 1px solid rgba(11, 110, 79, 0.14); border-radius: 18px; padding: 18px 20px; margin-top: 14px; }
+  footer { margin-top: 28px; font-size: 13px; color: var(--muted); text-align: center; }
+  @media (max-width: 640px) {
+    .page { width: min(100% - 20px, 980px); padding-top: 14px; }
+    .topbar { align-items: flex-start; flex-direction: column; }
+    .hero { border-radius: 20px; }
+    .content { border-radius: 18px; }
+    .hero-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <a class="brand" href="/azadari-pak/" aria-label="Azadari Pak home">
+      <span class="brand-mark"><img src="../../logo.png" alt="Ashtar Infinity company logo"></span>
+      <span>
+        <span class="brand-name">Ashtar Infinity</span>
+        <span class="brand-subtitle">User Guidelines for Azadari Pak</span>
+      </span>
+    </a>
+    <span class="status-pill">Terms and Guidelines</span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
+      <div>
+        <h1>Terms and User Guidelines</h1>
+        <p class="effective-date">Effective Date: 12 August 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>1. Purpose</h2>
+    <p>Azadari Pak is a community app for discovering and sharing Azadari programs, including Majalis, Juloos, live links, and related local program information.</p>
+
+    <h2>2. Accurate and Respectful Posts</h2>
+    <p>Users must post accurate, respectful, and useful program information. Program details should be checked before posting, including title, date, time, address, city, country, contact details, map location, and live links.</p>
+
+    <h2>3. Prohibited Content</h2>
+    <p>Users must not post abusive, fake, illegal, hateful, misleading, harassing, or harmful content. Content that targets people or communities unfairly, promotes violence, or disrupts respectful community use is not allowed.</p>
+
+    <h2>4. Images and Posters</h2>
+    <p>Program posters, ishtiar images, organizer images, and other uploaded content must be appropriate for a religious and community audience. Users should only upload images they have permission to share.</p>
+
+    <h2>5. Public Program Information</h2>
+    <p>Program posts may be visible to other app users. Users are responsible for the program details, images, contact information, addresses, map coordinates, notes, and live links they publish.</p>
+
+    <h2>6. Moderation and Removal</h2>
+    <p>Azadari Pak may remove inappropriate content, hide program posts, restrict features, or remove accounts when content violates these guidelines, creates safety risks, or affects the reliability of the service.</p>
+
+    <h2>7. Corrections and Removal Requests</h2>
+    <p>If a program post is incorrect or should be removed, users can edit or delete their own program from inside the app. Users may also contact support for corrections, content removal, account issues, privacy questions, deletion requests, or technical problems.</p>
+
+    <h2>8. Account Responsibility</h2>
+    <p>Users are responsible for keeping their phone number, PIN, and account access secure. Optional email may be used for PIN recovery support.</p>
+
+    <h2>9. Contact Support</h2>
+    <div class="contact-box">
+      <p><strong>Ashtar Infinity</strong><br>
+      Email: <a href="mailto:admin@ashtarinfinity.com">admin@ashtarinfinity.com</a><br>
+      Phone: <a href="tel:+923076893486">+92 307 6893486</a><br>
+      Website: <a href="https://ashtarinfinity.com">https://ashtarinfinity.com</a></p>
+    </div>
+  </article>
+
+  <footer>
+    Azadari Pak by Ashtar Infinity. <a href="/azadari-pak/privacy-policy/">Privacy Policy</a> | <a href="/azadari-pak/">Home</a> | &copy; 2026
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azadari Pak - Community Azadari Programs</title>
+<meta name="description" content="Discover, post, and follow Azadari programs, live links, and city notifications.">
+<link rel="canonical" href="https://ashtarinfinity.com/azadari-pak/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Azadari Pak - Community Azadari Programs">
+<meta property="og:description" content="Discover, post, and follow Azadari programs, live links, and city notifications.">
+<meta property="og:url" content="https://ashtarinfinity.com/azadari-pak/">
+<meta property="og:image" content="https://ashtarinfinity.com/azadari-pak/privacy-policy/azadari-pak-logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Azadari Pak - Community Azadari Programs">
+<meta name="twitter:description" content="Discover, post, and follow Azadari programs, live links, and city notifications.">
+<link rel="icon" href="../mark.png" type="image/png">
+<style>
+  :root {
+    --bg: #f7faf6;
+    --surface: #ffffff;
+    --ink: #172018;
+    --muted: #5d6b61;
+    --line: #dfe8df;
+    --green: #0b6e4f;
+    --green-dark: #074833;
+    --red: #c51616;
+    --red-soft: #fff0f0;
+    --gold: #c89b3c;
+    --gold-soft: #fff7e3;
+    --shadow: 0 24px 70px rgba(15, 47, 33, 0.13);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background:
+      radial-gradient(circle at top left, rgba(200, 155, 60, 0.16), transparent 34%),
+      linear-gradient(135deg, #fbfdf9 0%, #eef6ed 52%, #ffffff 100%);
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgba(11, 110, 79, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 110, 79, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 72%);
+  }
+  a { color: var(--green); font-weight: 700; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .page { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 64px; }
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 26px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; color: inherit; }
+  .brand-mark { width: 58px; height: 58px; display: grid; place-items: center; flex: 0 0 auto; }
+  .brand-mark img { width: 58px; height: 58px; object-fit: contain; }
+  .brand-name { display: block; font-size: 18px; font-weight: 800; }
+  .brand-subtitle { display: block; color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+  .nav a { color: #34443a; font-size: 14px; font-weight: 700; }
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: clamp(32px, 6vw, 64px);
+    background:
+      linear-gradient(135deg, rgba(7, 72, 51, 0.96), rgba(11, 110, 79, 0.9)),
+      var(--green);
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    top: -90px;
+    width: 280px;
+    height: 280px;
+    border: 48px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(24px, 5vw, 54px);
+    align-items: center;
+  }
+  .hero-copy { max-width: 690px; }
+  .app-logo {
+    width: clamp(96px, 16vw, 150px);
+    height: clamp(96px, 16vw, 150px);
+    object-fit: contain;
+    border-radius: 30px;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 6px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  }
+  h1 { margin: 0 0 14px; font-size: clamp(40px, 8vw, 76px); line-height: 0.98; letter-spacing: 0; }
+  .tagline { margin: 0 0 14px; color: rgba(255,255,255,0.92); font-size: clamp(18px, 2.6vw, 24px); font-weight: 750; }
+  .lede { max-width: 740px; margin: 0; color: rgba(255,255,255,0.84); font-size: 17px; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: #ffffff;
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .button.secondary { background: rgba(255,255,255,0.1); color: #ffffff; }
+  .store-note {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    margin-top: 18px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(255, 247, 227, 0.94);
+    color: #72561f;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .section {
+    margin-top: 24px;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid rgba(11, 110, 79, 0.12);
+    border-radius: 24px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 18px 55px rgba(15, 47, 33, 0.08);
+    backdrop-filter: blur(12px);
+  }
+  .section h2 { margin: 0 0 10px; color: var(--green-dark); font-size: clamp(26px, 4vw, 36px); line-height: 1.1; }
+  .section-intro { max-width: 760px; margin: 0 0 22px; color: var(--muted); font-size: 16px; }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .feature {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    background: #ffffff;
+  }
+  .feature h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
+  .feature p { margin: 0; color: #405047; font-size: 14.5px; }
+  .split {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+    align-items: start;
+  }
+  .contact-box {
+    border: 1px solid rgba(11, 110, 79, 0.14);
+    border-radius: 18px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #ffffff, var(--gold-soft));
+  }
+  .contact-box p { margin: 0 0 10px; color: #334238; }
+  .footer {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 760px) {
+    .page { width: min(100% - 20px, 1120px); padding-top: 14px; }
+    .topbar { align-items: flex-start; flex-direction: column; }
+    .nav { justify-content: flex-start; }
+    .hero { border-radius: 20px; }
+    .hero-inner, .split { grid-template-columns: 1fr; }
+    .features { grid-template-columns: 1fr; }
+    .section { border-radius: 18px; }
+    .footer { display: block; }
+    .footer-links { margin-top: 10px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <a class="brand" href="/azadari-pak/" aria-label="Azadari Pak home">
+      <span class="brand-mark"><img src="../logo.png" alt="Ashtar Infinity company logo"></span>
+      <span>
+        <span class="brand-name">Azadari Pak</span>
+        <span class="brand-subtitle">By Ashtar Infinity</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#support">Support</a>
+      <a href="/azadari-pak/contact/">Contact</a>
+      <a href="/azadari-pak/privacy-policy/">Privacy</a>
+      <a href="/azadari-pak/terms/">Terms</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>Azadari Pak</h1>
+        <p class="tagline">Discover, post, and follow Azadari programs in your city.</p>
+        <p class="lede">A community app for religious programs, live links, local notifications, and managing posted Majalis, Juloos, and other Azadari events by city and country.</p>
+        <div class="actions">
+          <a class="button" href="#support">Contact Support</a>
+          <a class="button secondary" href="/azadari-pak/privacy-policy/">Privacy Policy</a>
+        </div>
+        <span class="store-note">Coming soon on Google Play</span>
+      </div>
+      <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <h2>App Features</h2>
+    <p class="section-intro">Azadari Pak is designed to help communities share program information clearly and keep local users informed.</p>
+    <div class="features">
+      <article class="feature"><h3>Program Listings</h3><p>Browse male and female Azadari program listings by city and country.</p></article>
+      <article class="feature"><h3>Post Programs</h3><p>Post programs with poster and ishtiar images for community visibility.</p></article>
+      <article class="feature"><h3>Program Details</h3><p>Add date, time, address, city, state, country, and map location.</p></article>
+      <article class="feature"><h3>View Posters</h3><p>Open program details and view attached posters and images.</p></article>
+      <article class="feature"><h3>Manage Posts</h3><p>Manage your own posted programs from your account.</p></article>
+      <article class="feature"><h3>Live Links</h3><p>Share YouTube live program links for remote viewers.</p></article>
+      <article class="feature"><h3>City Notifications</h3><p>Receive city-based program notifications for relevant local updates.</p></article>
+      <article class="feature"><h3>Live Alerts</h3><p>Receive alerts when live program links are available.</p></article>
+      <article class="feature"><h3>Shia Essentials</h3><p>Read PDF content in the Shia Essentials section.</p></article>
+      <article class="feature"><h3>Phone Login</h3><p>Sign up and log in with phone number and PIN.</p></article>
+      <article class="feature"><h3>PIN Recovery</h3><p>Add an optional email address for PIN recovery support.</p></article>
+      <article class="feature"><h3>Profile and Deletion</h3><p>Manage your profile and access account deletion support.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="split">
+      <div>
+        <h2>About Azadari Pak</h2>
+        <p class="section-intro">Azadari Pak helps communities organize and discover Majalis, Juloos, and other Azadari programs by city and country.</p>
+        <p>The app is built for respectful community use. It supports local program discovery, public program posts, live links, and notifications so users can follow relevant Azadari activities in their area.</p>
+      </div>
+      <div class="contact-box">
+        <p><strong>Developer:</strong> Ashtar Infinity</p>
+        <p><strong>Website:</strong> <a href="https://ashtarinfinity.com">ashtarinfinity.com</a></p>
+        <p><strong>Account deletion:</strong> <a href="/azadari-pak/account-deletion/">View instructions</a></p>
+        <p><strong>Data deletion:</strong> <a href="/azadari-pak/data-deletion/">View instructions</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <h2>Support and Contact</h2>
+    <p class="section-intro">Users can contact support for account access, program posting, privacy, deletion, or technical issues.</p>
+    <div class="contact-box">
+      <p><strong>Email:</strong> <a href="mailto:admin@ashtarinfinity.com">admin@ashtarinfinity.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+923076893486">+92 307 6893486</a></p>
+      <p><strong>Company/Developer:</strong> Ashtar Infinity</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>Azadari Pak by Ashtar Infinity. Contact: <a href="mailto:admin@ashtarinfinity.com">admin@ashtarinfinity.com</a></div>
+    <div class="footer-links">
+      <a href="/azadari-pak/privacy-policy/">Privacy Policy</a>
+      <a href="/azadari-pak/terms/">Terms/User Guidelines</a>
+      <a href="/azadari-pak/contact/">Contact</a>
+      <span>&copy; 2026</span>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

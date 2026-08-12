@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Azadari Data</title>
+<meta name="description" content="Public data deletion instructions for posted programs in the Azadari app.">
+<link rel="canonical" href="https://ashtarinfinity.com/azadari/data-deletion">
+<link rel="icon" href="../../mark.png" type="image/png">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --ink: #111111;
+    --muted: #555555;
+    --line: #e8e8e8;
+    --accent: #c51616;
+    --accent-dark: #8f1010;
+    --accent-soft: #fff0f0;
+    --shadow: 0 20px 60px rgba(17, 17, 17, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+
+  a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page {
+    width: min(960px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 28px 0 60px;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+  }
+
+  .brand-title {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .brand-subtitle {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 6px 12px;
+    border: 1px solid rgba(197, 22, 22, 0.18);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-size: 13px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: clamp(18px, 4vw, 30px);
+    border-top: 5px solid var(--accent);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    padding: clamp(30px, 6vw, 56px);
+  }
+
+  .app-logo {
+    width: clamp(78px, 14vw, 118px);
+    height: clamp(78px, 14vw, 118px);
+    object-fit: contain;
+    border: 1px solid var(--line);
+    background: #ffffff;
+    padding: 6px;
+  }
+
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .lede {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  .content {
+    margin-top: 24px;
+    display: grid;
+    gap: 18px;
+  }
+
+  section {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: clamp(20px, 4vw, 30px);
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  p {
+    margin: 0 0 12px;
+    color: #2f2f2f;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul, ol {
+    margin: 10px 0 0;
+    padding-left: 22px;
+  }
+
+  li {
+    margin: 8px 0;
+    color: #2f2f2f;
+  }
+
+  .path {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 10px 12px;
+    border-left: 4px solid var(--accent);
+    background: var(--accent-soft);
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .support-box {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 16px;
+    border: 1px solid rgba(197, 22, 22, 0.2);
+    background: var(--accent-soft);
+  }
+
+  .footer {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      width: min(100% - 22px, 960px);
+      padding-top: 18px;
+    }
+
+    .topbar {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+    }
+
+    .hero, section {
+      padding: 22px;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <a class="brand" href="https://ashtarinfinity.com" aria-label="Ashtar Infinity home">
+      <img src="../../logo.png" alt="Ashtar Infinity logo">
+      <span>
+        <span class="brand-title">Azadari</span>
+        <span class="brand-subtitle">Data deletion request information</span>
+      </span>
+    </a>
+    <span class="badge">Public data deletion page</span>
+  </header>
+
+  <div class="hero">
+    <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
+    <div>
+      <h1>Delete Your Azadari Data</h1>
+      <p class="lede">
+        Azadari allows users to delete individual programs they have posted without deleting their account.
+      </p>
+    </div>
+  </div>
+
+  <div class="content">
+    <section aria-labelledby="delete-program">
+      <h2 id="delete-program">How to Delete a Posted Program</h2>
+      <ol>
+        <li>Open the Azadari app.</li>
+        <li>Log in to your account.</li>
+        <li>Open My Programs from the app drawer.</li>
+        <li>Select the program you posted.</li>
+        <li>Tap Delete Program.</li>
+        <li>Confirm deletion.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="data-deleted">
+      <h2 id="data-deleted">Data Deleted When a Program Is Deleted</h2>
+      <ul>
+        <li>Program title and details</li>
+        <li>Program date and time</li>
+        <li>Program location and address</li>
+        <li>Program contact information</li>
+        <li>Poster/ishtiar images</li>
+        <li>Organizer image, if added</li>
+        <li>Live links attached to that program, if any</li>
+        <li>Public listing of that program</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="data-not-deleted">
+      <h2 id="data-not-deleted">Data Not Deleted</h2>
+      <ul>
+        <li>Your Azadari account remains active.</li>
+        <li>Your profile information remains active.</li>
+        <li>Other programs you posted are not deleted.</li>
+        <li>Notification preferences are not deleted.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="retention">
+      <h2 id="retention">Retention Note</h2>
+      <p>
+        Some data may be retained where required for security, fraud prevention, legal compliance, abuse prevention, backups, or system logs.
+      </p>
+    </section>
+
+    <section aria-labelledby="account-deletion">
+      <h2 id="account-deletion">Full Account Deletion</h2>
+      <p>If users want to delete their full Azadari account and associated account data, they can do this in the app:</p>
+      <p class="path">Azadari app -&gt; Settings -&gt; Delete Account</p>
+      <p>
+        Full account deletion details are available at
+        <a href="https://ashtarinfinity.com/azadari/account-deletion">https://ashtarinfinity.com/azadari/account-deletion</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="support">
+      <h2 id="support">Support</h2>
+      <p>If users cannot access the app or need help deleting their data, they can contact support.</p>
+      <div class="support-box">
+        <div><strong>Support email:</strong> <a href="mailto:admin@ashtarinfinity.com">admin@ashtarinfinity.com</a></div>
+        <div><strong>Support phone:</strong> <a href="tel:+923076893486">+923076893486</a></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="privacy">
+      <h2 id="privacy">Privacy Policy</h2>
+      <p>
+        Privacy Policy:
+        <a href="https://ashtarinfinity.com/azadari/privacy">https://ashtarinfinity.com/azadari/privacy</a>
+      </p>
+    </section>
+  </div>
+
+  <footer class="footer">
+    &copy; Ashtar Infinity. This data deletion page is available at https://ashtarinfinity.com/azadari/data-deletion.
+  </footer>
+</main>
+</body>
+</html>

@@ -9,15 +9,15 @@
 <link rel="icon" href="../../mark.png" type="image/png">
 <style>
   :root {
-    --bg: #ffffff;
+    --bg: #fff8f8;
     --surface: #ffffff;
     --ink: #111111;
-    --muted: #555555;
-    --line: #e8e8e8;
+    --muted: #675656;
+    --line: #eadbdb;
     --accent: #c51616;
     --accent-dark: #8f1010;
     --accent-soft: #fff0f0;
-    --shadow: 0 20px 60px rgba(17, 17, 17, 0.08);
+    --shadow: 0 24px 70px rgba(74, 11, 11, 0.14);
   }
 
   * {
@@ -25,11 +25,25 @@
   }
 
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.65;
+    color: var(--ink);
+    margin: 0;
+    background:
+      radial-gradient(circle at top left, rgba(197, 22, 22, 0.13), transparent 34%),
+      linear-gradient(135deg, #fffafa 0%, #fff3f3 48%, #ffffff 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgba(197, 22, 22, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(197, 22, 22, 0.045) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.58), transparent 72%);
   }
 
   a {
@@ -43,33 +57,42 @@
   }
 
   .page {
-    width: min(960px, calc(100% - 32px));
+    width: min(980px, calc(100% - 32px));
     margin: 0 auto;
-    padding: 28px 0 60px;
+    padding: 28px 0 64px;
   }
 
   .topbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
   }
 
   .brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
     color: inherit;
   }
 
-  .brand img {
-    width: 52px;
-    height: 52px;
+  .brand-mark {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+
+  .brand-mark img {
+    width: 58px;
+    height: 58px;
     object-fit: contain;
   }
 
-  .brand-title {
+  .brand-name {
     display: block;
     font-size: 18px;
     font-weight: 800;
@@ -79,40 +102,65 @@
     display: block;
     color: var(--muted);
     font-size: 13px;
+    margin-top: 1px;
   }
 
-  .badge {
+  .status-pill {
     display: inline-flex;
     align-items: center;
     min-height: 34px;
-    padding: 6px 12px;
-    border: 1px solid rgba(197, 22, 22, 0.18);
+    padding: 7px 12px;
     border-radius: 999px;
-    background: var(--accent-soft);
+    border: 1px solid rgba(197, 22, 22, 0.24);
+    background: rgba(255, 240, 240, 0.84);
     color: var(--accent-dark);
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 700;
     white-space: nowrap;
   }
 
   .hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: clamp(32px, 6vw, 58px);
+    background:
+      linear-gradient(135deg, rgba(143, 16, 16, 0.97), rgba(197, 22, 22, 0.9)),
+      var(--accent);
+    color: #ffffff;
+    box-shadow: var(--shadow);
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    top: -90px;
+    width: 260px;
+    height: 260px;
+    border: 46px solid rgba(255, 255, 255, 0.09);
+    border-radius: 50%;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
     display: grid;
     grid-template-columns: auto 1fr;
+    gap: 18px;
     align-items: center;
-    gap: clamp(18px, 4vw, 30px);
-    border-top: 5px solid var(--accent);
-    background: var(--surface);
-    box-shadow: var(--shadow);
-    padding: clamp(30px, 6vw, 56px);
   }
 
   .app-logo {
-    width: clamp(78px, 14vw, 118px);
-    height: clamp(78px, 14vw, 118px);
+    width: clamp(72px, 12vw, 108px);
+    height: clamp(72px, 12vw, 108px);
     object-fit: contain;
-    border: 1px solid var(--line);
+    border-radius: 24px;
     background: #ffffff;
-    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 4px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
   }
 
   h1 {
@@ -125,31 +173,40 @@
   .lede {
     max-width: 760px;
     margin: 0;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.86);
     font-size: 18px;
   }
 
   .content {
     margin-top: 24px;
-    display: grid;
-    gap: 18px;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid rgba(197, 22, 22, 0.12);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 55px rgba(74, 11, 11, 0.09);
+    backdrop-filter: blur(12px);
   }
 
-  section {
-    border: 1px solid var(--line);
-    background: var(--surface);
-    padding: clamp(20px, 4vw, 30px);
+  .content section {
+    margin-top: 38px;
+  }
+
+  .content section:first-child {
+    margin-top: 0;
   }
 
   h2 {
-    margin: 0 0 12px;
-    font-size: 22px;
+    margin: 0 0 10px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    color: var(--accent-dark);
+    font-size: 20px;
     line-height: 1.25;
   }
 
   p {
     margin: 0 0 12px;
-    color: #2f2f2f;
+    color: #3b3030;
   }
 
   p:last-child {
@@ -163,7 +220,7 @@
 
   li {
     margin: 8px 0;
-    color: #2f2f2f;
+    color: #3b3030;
   }
 
   .path {
@@ -179,10 +236,11 @@
   .support-box {
     display: grid;
     gap: 8px;
-    margin-top: 12px;
-    padding: 16px;
-    border: 1px solid rgba(197, 22, 22, 0.2);
-    background: var(--accent-soft);
+    margin-top: 14px;
+    padding: 18px 20px;
+    border: 1px solid rgba(197, 22, 22, 0.18);
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffffff, var(--accent-soft));
   }
 
   .footer {
@@ -194,8 +252,8 @@
 
   @media (max-width: 640px) {
     .page {
-      width: min(100% - 22px, 960px);
-      padding-top: 18px;
+      width: min(100% - 20px, 980px);
+      padding-top: 14px;
     }
 
     .topbar {
@@ -204,16 +262,15 @@
     }
 
     .hero {
+      border-radius: 20px;
+    }
+
+    .content {
+      border-radius: 18px;
+    }
+
+    .hero-inner {
       grid-template-columns: 1fr;
-    }
-
-    .brand img {
-      width: 46px;
-      height: 46px;
-    }
-
-    .hero, section {
-      padding: 22px;
     }
   }
 </style>
@@ -222,24 +279,28 @@
 <main class="page">
   <header class="topbar">
     <a class="brand" href="https://ashtarinfinity.com" aria-label="Ashtar Infinity home">
-      <img src="../../logo.png" alt="Ashtar Infinity logo">
+      <span class="brand-mark">
+        <img src="../../logo.png" alt="Ashtar Infinity company logo">
+      </span>
       <span>
-        <span class="brand-title">Azadari</span>
+        <span class="brand-name">Ashtar Infinity</span>
         <span class="brand-subtitle">Account deletion request information</span>
       </span>
     </a>
-    <span class="badge">Public deletion page</span>
+    <span class="status-pill">Public deletion page</span>
   </header>
 
-  <div class="hero">
-    <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
-    <div>
-      <h1>Delete Your Azadari Account</h1>
-      <p class="lede">
-        This page explains how Azadari users can delete their account and associated account data. It is publicly accessible and does not require login.
-      </p>
+  <section class="hero">
+    <div class="hero-inner">
+      <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
+      <div>
+        <h1>Delete Your Azadari Account</h1>
+        <p class="lede">
+          This page explains how Azadari users can delete their account and associated account data. It is publicly accessible and does not require login.
+        </p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <div class="content">
     <section aria-labelledby="delete-in-app">

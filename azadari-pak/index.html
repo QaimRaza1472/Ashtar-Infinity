@@ -18,18 +18,18 @@
 <link rel="apple-touch-icon" href="/azadari-pak/privacy-policy/azadari-pak-logo.png">
 <style>
   :root {
-    --bg: #f7faf6;
+    --bg: #f5f7f3;
     --surface: #ffffff;
-    --ink: #172018;
-    --muted: #5d6b61;
-    --line: #dfe8df;
+    --ink: #111812;
+    --muted: #607064;
+    --line: #dbe4da;
     --green: #0b6e4f;
-    --green-dark: #074833;
+    --green-dark: #053826;
     --red: #c51616;
     --red-soft: #fff0f0;
     --gold: #c89b3c;
     --gold-soft: #fff7e3;
-    --shadow: 0 24px 70px rgba(15, 47, 33, 0.13);
+    --shadow: 0 28px 90px rgba(13, 36, 25, 0.18);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -39,8 +39,9 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     background:
-      radial-gradient(circle at top left, rgba(200, 155, 60, 0.16), transparent 34%),
-      linear-gradient(135deg, #fbfdf9 0%, #eef6ed 52%, #ffffff 100%);
+      linear-gradient(120deg, rgba(200, 155, 60, 0.18), transparent 34%),
+      linear-gradient(240deg, rgba(11, 110, 79, 0.14), transparent 38%),
+      linear-gradient(135deg, #fbfdf9 0%, #edf5eb 48%, #ffffff 100%);
   }
   body::before {
     content: "";
@@ -55,7 +56,7 @@
   }
   a { color: var(--green); font-weight: 700; text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .page { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 64px; }
+  .page { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 64px; }
   .topbar {
     display: flex;
     align-items: center;
@@ -69,35 +70,39 @@
   .brand-name { display: block; font-size: 18px; font-weight: 800; }
   .brand-subtitle { display: block; color: var(--muted); font-size: 13px; margin-top: 1px; }
   .nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
-  .nav a { color: #34443a; font-size: 14px; font-weight: 700; }
+  .nav a { color: #34443a; font-size: 14px; font-weight: 750; }
   .hero {
     position: relative;
     overflow: hidden;
     border-radius: 28px;
-    padding: clamp(32px, 6vw, 64px);
+    min-height: min(640px, calc(100vh - 150px));
+    padding: clamp(34px, 6vw, 72px);
     background:
-      linear-gradient(135deg, rgba(7, 72, 51, 0.96), rgba(11, 110, 79, 0.9)),
+      linear-gradient(130deg, rgba(4, 43, 29, 0.98), rgba(9, 96, 68, 0.94) 54%, rgba(167, 34, 35, 0.82)),
       var(--green);
     color: #fff;
     box-shadow: var(--shadow);
+    isolation: isolate;
   }
   .hero::after {
     content: "";
     position: absolute;
-    right: -90px;
-    top: -90px;
-    width: 280px;
-    height: 280px;
-    border: 48px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(115deg, rgba(0,0,0,.4), transparent 68%);
   }
   .hero-inner {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
     gap: clamp(24px, 5vw, 54px);
     align-items: center;
+    min-height: inherit;
   }
   .hero-copy { max-width: 690px; }
   .app-logo {
@@ -110,9 +115,14 @@
     padding: 6px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
   }
-  h1 { margin: 0 0 14px; font-size: clamp(40px, 8vw, 76px); line-height: 0.98; letter-spacing: 0; }
+  h1 { margin: 0 0 14px; font-size: clamp(44px, 8vw, 84px); line-height: 0.95; letter-spacing: 0; }
   .tagline { margin: 0 0 14px; color: rgba(255,255,255,0.92); font-size: clamp(18px, 2.6vw, 24px); font-weight: 750; }
   .lede { max-width: 740px; margin: 0; color: rgba(255,255,255,0.84); font-size: 17px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; min-height: 34px; margin-bottom: 18px; padding: 7px 12px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.9); font-size: 13px; font-weight: 800; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 580px; margin-top: 28px; }
+  .stat { min-height: 92px; padding: 14px; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; background: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); backdrop-filter: blur(16px); }
+  .stat strong { display: block; color: #fff; font-size: 22px; line-height: 1.1; }
+  .stat span { display: block; margin-top: 5px; color: rgba(255,255,255,.72); font-size: 12.5px; font-weight: 700; }
   .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
   .button {
     display: inline-flex;
@@ -127,7 +137,35 @@
     font-size: 14px;
     font-weight: 800;
   }
+  .button:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 16px 35px rgba(0,0,0,.18); }
   .button.secondary { background: rgba(255,255,255,0.1); color: #ffffff; }
+  .showcase { position: relative; height: min(620px, 76vh); min-height: 480px; perspective: 1200px; }
+  .phone-stack { position: absolute; inset: 0; transform-style: preserve-3d; animation: floatStack 7s ease-in-out infinite; }
+  .phone {
+    position: absolute;
+    border-radius: 38px;
+    border: 10px solid #101612;
+    background: #101612;
+    box-shadow: 0 42px 90px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.08);
+    overflow: hidden;
+    transform-style: preserve-3d;
+  }
+  .phone.primary { right: 42px; top: 22px; width: min(320px, 72vw); height: 610px; transform: rotateY(-18deg) rotateX(7deg) rotateZ(2deg); }
+  .phone.secondary { left: 18px; bottom: 26px; width: 230px; height: 440px; opacity: .92; transform: translateZ(-80px) rotateY(-28deg) rotateX(6deg) rotateZ(-7deg); filter: saturate(.95); }
+  .screen { position: absolute; inset: 0; border-radius: 28px; overflow: hidden; background: linear-gradient(180deg, #fbfff9, #edf5ec); }
+  .screen::before { content: ""; position: absolute; left: 50%; top: 10px; width: 86px; height: 24px; border-radius: 999px; background: #101612; transform: translateX(-50%); z-index: 2; }
+  .app-top { padding: 48px 18px 16px; background: linear-gradient(135deg, #074833, #0b6e4f); color: #fff; }
+  .app-top img { width: 54px; height: 54px; border-radius: 15px; background: #fff; padding: 3px; vertical-align: middle; margin-right: 10px; }
+  .app-top strong { font-size: 20px; vertical-align: middle; }
+  .app-card { margin: 14px; padding: 14px; border: 1px solid #dde8dc; border-radius: 18px; background: #fff; box-shadow: 0 12px 28px rgba(15,47,33,.08); }
+  .app-card h3 { margin: 0 0 6px; font-size: 15px; color: #101812; }
+  .app-card p { margin: 0; color: #5e6b62; font-size: 12.5px; line-height: 1.45; }
+  .poster { height: 128px; border-radius: 16px; margin-bottom: 12px; background: linear-gradient(145deg, #b80f1c, #0b6e4f 58%, #e4c16b); display: grid; place-items: center; color: #fff; font-size: 42px; font-weight: 900; }
+  .list-row { display: grid; grid-template-columns: 42px 1fr; gap: 10px; align-items: center; margin-top: 10px; }
+  .dot { width: 42px; height: 42px; border-radius: 13px; background: #fff0f0; display: grid; place-items: center; color: var(--red); font-weight: 900; }
+  .floating-panel { position: absolute; right: 0; bottom: 40px; width: 210px; padding: 14px; border: 1px solid rgba(255,255,255,.24); border-radius: 18px; background: rgba(255,255,255,.13); color: #fff; backdrop-filter: blur(18px); box-shadow: 0 24px 55px rgba(0,0,0,.25); }
+  .floating-panel strong { display: block; font-size: 15px; }
+  .floating-panel span { color: rgba(255,255,255,.76); font-size: 12.5px; }
   .store-note {
     display: inline-flex;
     align-items: center;
@@ -159,10 +197,13 @@
   }
   .feature {
     border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 18px;
+    padding: 18px;
     background: #ffffff;
+    box-shadow: 0 14px 34px rgba(15,47,33,.06);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   }
+  .feature:hover { transform: translateY(-5px); border-color: rgba(11,110,79,.3); box-shadow: 0 22px 45px rgba(15,47,33,.12); }
   .feature h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
   .feature p { margin: 0; color: #405047; font-size: 14.5px; }
   .split {
@@ -190,12 +231,26 @@
     flex-wrap: wrap;
   }
   .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  @keyframes floatStack {
+    0%, 100% { transform: translateY(0) rotateZ(0); }
+    50% { transform: translateY(-14px) rotateZ(.7deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto; }
+    .phone-stack { animation: none; }
+    .button, .feature { transition: none; }
+  }
   @media (max-width: 760px) {
     .page { width: min(100% - 20px, 1120px); padding-top: 14px; }
     .topbar { align-items: flex-start; flex-direction: column; }
     .nav { justify-content: flex-start; }
-    .hero { border-radius: 20px; }
+    .hero { border-radius: 20px; min-height: auto; }
     .hero-inner, .split { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .showcase { height: 440px; min-height: 440px; margin-top: 12px; }
+    .phone.primary { right: 12px; width: 250px; height: 480px; }
+    .phone.secondary { left: 0; width: 172px; height: 330px; }
+    .floating-panel { right: 10px; bottom: 0; width: 185px; }
     .features { grid-template-columns: 1fr; }
     .section { border-radius: 18px; }
     .footer { display: block; }
@@ -228,6 +283,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-copy">
+        <span class="eyebrow">Community programs, live links, and city alerts</span>
         <h1>Azadari Pak</h1>
         <p class="tagline">Discover, post, and follow Azadari programs in your city.</p>
         <p class="lede">A community app for religious programs, live links, local notifications, and managing posted Majalis, Juloos, and other Azadari events by city and country.</p>
@@ -235,9 +291,53 @@
           <a class="button" href="#support">Contact Support</a>
           <a class="button secondary" href="/azadari-pak/privacy-policy/">Privacy Policy</a>
         </div>
+        <div class="hero-stats" aria-label="Azadari Pak highlights">
+          <div class="stat"><strong>City-wise</strong><span>Program discovery and alerts</span></div>
+          <div class="stat"><strong>Live links</strong><span>Share streams for remote viewers</span></div>
+          <div class="stat"><strong>Managed</strong><span>Edit and remove your own posts</span></div>
+        </div>
         <span class="store-note">Coming soon on Google Play</span>
       </div>
-      <img class="app-logo" src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="Azadari Pak app logo">
+      <div class="showcase" aria-label="Azadari Pak app preview">
+        <div class="phone-stack">
+          <div class="phone primary">
+            <div class="screen">
+              <div class="app-top">
+                <img src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="">
+                <strong>Azadari Pak</strong>
+              </div>
+              <div class="app-card">
+                <div class="poster">AP</div>
+                <h3>Majlis Program</h3>
+                <p>Karachi - Today - Live link available</p>
+              </div>
+              <div class="app-card">
+                <h3>City Notifications</h3>
+                <p>Follow your city and receive relevant local program alerts.</p>
+                <div class="list-row"><span class="dot">1</span><p><strong>Lahore</strong><br>New program posted</p></div>
+                <div class="list-row"><span class="dot">2</span><p><strong>Islamabad</strong><br>Live stream added</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="phone secondary">
+            <div class="screen">
+              <div class="app-top">
+                <img src="/azadari-pak/privacy-policy/azadari-pak-logo.png" alt="">
+                <strong>Programs</strong>
+              </div>
+              <div class="app-card">
+                <h3>Post Program</h3>
+                <p>Add poster, date, city, address, and live link.</p>
+              </div>
+              <div class="app-card">
+                <h3>My Programs</h3>
+                <p>Manage posts from your account.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="floating-panel"><strong>Built for community clarity</strong><span>Respectful program sharing with support and policy pages ready for users.</span></div>
+      </div>
     </div>
   </section>
 

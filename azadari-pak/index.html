@@ -250,7 +250,15 @@
     .showcase { height: 440px; min-height: 440px; margin-top: 12px; }
     .phone.primary { right: 12px; width: 250px; height: 480px; }
     .phone.secondary { left: 0; width: 172px; height: 330px; }
-    .floating-panel { right: 10px; bottom: 0; width: 185px; }
+    .floating-panel {
+      right: 10px;
+      bottom: 8px;
+      width: min(300px, calc(100% - 20px));
+      background: rgba(5, 36, 25, 0.92);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 22px 46px rgba(0,0,0,.35);
+    }
+    .floating-panel span { color: rgba(255,255,255,.82); }
     .features { grid-template-columns: 1fr; }
     .section { border-radius: 18px; }
     .footer { display: block; }

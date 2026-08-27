@@ -163,9 +163,9 @@
   .poster { height: 128px; border-radius: 16px; margin-bottom: 12px; background: linear-gradient(145deg, #b80f1c, #0b6e4f 58%, #e4c16b); display: grid; place-items: center; color: #fff; font-size: 42px; font-weight: 900; }
   .list-row { display: grid; grid-template-columns: 42px 1fr; gap: 10px; align-items: center; margin-top: 10px; }
   .dot { width: 42px; height: 42px; border-radius: 13px; background: #fff0f0; display: grid; place-items: center; color: var(--red); font-weight: 900; }
-  .floating-panel { position: absolute; right: 0; bottom: 40px; width: 210px; padding: 14px; border: 1px solid rgba(255,255,255,.24); border-radius: 18px; background: rgba(255,255,255,.13); color: #fff; backdrop-filter: blur(18px); box-shadow: 0 24px 55px rgba(0,0,0,.25); }
-  .floating-panel strong { display: block; font-size: 15px; }
-  .floating-panel span { color: rgba(255,255,255,.76); font-size: 12.5px; }
+  .floating-panel { position: absolute; right: 0; bottom: 40px; width: 230px; padding: 16px; border: 1px solid rgba(11,110,79,.18); border-radius: 18px; background: rgba(248,255,249,.96); color: var(--green-dark); box-shadow: 0 24px 55px rgba(0,0,0,.25); }
+  .floating-panel strong { display: block; font-size: 15px; color: var(--green-dark); }
+  .floating-panel span { color: #405047; font-size: 12.5px; }
   .store-note {
     display: inline-flex;
     align-items: center;
@@ -254,11 +254,10 @@
       right: 10px;
       bottom: 8px;
       width: min(300px, calc(100% - 20px));
-      background: rgba(5, 36, 25, 0.92);
-      border-color: rgba(255,255,255,.22);
-      box-shadow: 0 22px 46px rgba(0,0,0,.35);
+      background: rgba(248,255,249,.98);
+      border-color: rgba(11,110,79,.2);
+      box-shadow: 0 22px 46px rgba(0,0,0,.32);
     }
-    .floating-panel span { color: rgba(255,255,255,.82); }
     .features { grid-template-columns: 1fr; }
     .section { border-radius: 18px; }
     .footer { display: block; }
